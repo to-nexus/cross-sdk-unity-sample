@@ -1,0 +1,73 @@
+{
+  "dependencies": {
+    "com.bgtools.playerprefseditor": "1.2.2",
+    "com.mixpanel.unity": "3.5.3",
+    "com.nexus.cross.sdk.unity": "file:./../../../src/Cross.Sdk.Unity",
+    "com.nexus.cross.core": "file:./../../../src/Cross.Core",
+    "com.nexus.cross.core.common": "file:./../../../src/Cross.Core.Common",
+    "com.nexus.cross.core.crypto": "file:./../../../src/Cross.Core.Crypto",
+    "com.nexus.cross.core.network": "file:./../../../src/Cross.Core.Network",
+    "com.nexus.cross.core.storage": "file:./../../../src/Cross.Core.Storage",
+    "com.nexus.cross.sign": "file:./../../../src/Cross.Sign",
+    "com.nexus.cross.sign.nethereum": "file:./../../../src/Cross.Sign.Nethereum",
+    "com.nexus.cross.sign.nethereum.unity": "file:./../../../src/Cross.Sign.Nethereum.Unity",
+    "com.nexus.cross.sign.unity": "file:./../../../src/Cross.Sign.Unity",
+    "com.nexus.cross.unity.dependencies": "file:./../../../src/Cross.Unity.Dependencies",
+    "com.skibitsky.scene-reference": "1.1.1",
+    "com.unity.ide.rider": "3.0.34",
+    "com.unity.ide.visualstudio": "2.0.22",
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.unity.test-framework": "1.4.5",
+    "com.unity.ugui": "2.0.0",
+    "com.yasirkula.ingamedebugconsole": "1.6.8",
+    "io.sentry.unity": "2.3.0",
+    "com.unity.modules.androidjni": "1.0.0",
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.assetbundle": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.director": "1.0.0",
+    "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.screencapture": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.uielements": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.unitywebrequestassetbundle": "1.0.0",
+    "com.unity.modules.unitywebrequesttexture": "1.0.0",
+    "com.unity.modules.unitywebrequestwww": "1.0.0"
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.bgtools.playerprefseditor",
+        "com.mixpanel.unity",
+        "com.nethereum.unity",
+        "com.openupm",
+        "com.skibitsky.scene-reference",
+        "com.yasirkula.ingamedebugconsole",
+        "io.sentry.unity"
+      ]
+    },
+    {
+      "name": "NexusUPM",
+      "url": "https://package.cross-nexus.com/repository/cross-sdk-unity",
+      "scopes": [
+        "com.nexus.cross.sdk.unity",
+        "com.nexus.cross.core",
+        "com.nexus.cross.core.common",
+        "com.nexus.cross.core.crypto",
+        "com.nexus.cross.core.network",
+        "com.nexus.cross.core.storage",
+        "com.nexus.cross.sign",
+        "com.nexus.cross.sign.nethereum",
+        "com.nexus.cross.sign.nethereum.unity",
+        "com.nexus.cross.sign.unity",
+        "com.nexus.cross.unity.dependencies"
+      ]
+    }
+  ]
+}
