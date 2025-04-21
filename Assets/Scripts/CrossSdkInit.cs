@@ -25,7 +25,7 @@ namespace Sample
             var CrossSdkConfig = new CrossSdkConfig
             {
                 // Project ID provided by cross team
-                projectId = "ef21cf313a63dbf63f2e9e04f3614029",
+                projectId = "0979fd7c92ec3dbd8e78f433c3e5a523",
                 metadata = new Metadata(
                     "CrossSdk Unity",   // your project name
                     "CrossSdk Unity Sample",    // your project description

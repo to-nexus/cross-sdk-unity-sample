@@ -79,3 +79,7 @@ crashlytics-build.properties
 # SonarQube Plugin
 # https://plugins.jetbrains.com/plugin/7238-sonarqube-community-plugin
 .idea/**/sonarIssues.xml
+
+build-ios/
+build-android.apk
+.utmp/

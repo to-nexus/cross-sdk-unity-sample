@@ -18,6 +18,7 @@
                 <data android:scheme="cross-sdk-unity-sample"/>
             </intent-filter>
         </activity>
+        <meta-data android:name="io.sentry.auto-init" android:value="false" />
     </application>
     <queries>
         <intent>
