@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Cross.Sdk.Unity.sln"
+    "dotnet.defaultSolution": "cross-sdk-unity-sample.sln",
 }
