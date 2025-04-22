@@ -57,17 +57,7 @@
       "name": "NexusUPM",
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity",
       "scopes": [
-        "com.nexus.cross.sdk.unity",
-        "com.nexus.cross.core",
-        "com.nexus.cross.core.common",
-        "com.nexus.cross.core.crypto",
-        "com.nexus.cross.core.network",
-        "com.nexus.cross.core.storage",
-        "com.nexus.cross.sign",
-        "com.nexus.cross.sign.nethereum",
-        "com.nexus.cross.sign.nethereum.unity",
-        "com.nexus.cross.sign.unity",
-        "com.nexus.cross.unity.dependencies"
+        "com.nexus.cross"
       ]
     }
   ]
