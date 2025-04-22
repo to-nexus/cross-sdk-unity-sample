@@ -13,7 +13,11 @@ Cross Unity SDK enables seamless integration of blockchain wallet connectivity i
 
 ## Installation
 
-1. **Add Scoped Registry**
+1. **Required Unity Version**
+
+   Unity version should be equal or greater than 6000.0.23f1. If you encounter any version compatibility issues, please feel free to contact us.​
+
+3. **Add Scoped Registry**
 
    Modify your Unity project's `manifest.json` to include the Cross SDK scoped registry:
 
@@ -51,11 +55,13 @@ Cross Unity SDK enables seamless integration of blockchain wallet connectivity i
    };
 
    await CrossSdk.InitializeAsync(config);
+   ```
 
 2. **Connect to Wallet**
 
   ```csharp
   CrossSdk.Connect();
+  ```
 
 3. **Sign a Message**
 
@@ -64,6 +70,7 @@ Cross Unity SDK enables seamless integration of blockchain wallet connectivity i
   var message = "Hello from Unity!";
   var customData = new CustomData{ Metadata = "You are about to sign a message. This is plain text type custom data." }
   var signature = await CrossSdk.Evm.SignMessageAsync(message, "0x", customData);   // use 0x for 2nd parameter in case of address is undefined
+  ```
 
 4. **Send Cross Coin**
 
@@ -71,6 +78,7 @@ Cross Unity SDK enables seamless integration of blockchain wallet connectivity i
     const string toAddress = "0x920A31f0E48739C3FbB790D992b0690f7F5C42ea";  // receipient address
     const value = var value = Web3.Convert.ToWei(1);  // convert to wei to send 1 cross
     var result = await CrossSdk.Evm.SendTransactionAsync(toAddress, value, null, null); // data or custom data can be null
+  ```
 
 5. **Send ERC20 Token**
 
@@ -92,6 +100,7 @@ Cross Unity SDK enables seamless integration of blockchain wallet connectivity i
         toAddress,
         value
     );
+  ```
 
 6. Custom Data
 
