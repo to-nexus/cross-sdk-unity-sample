@@ -45,17 +45,7 @@ MonoBehaviour:
     m_Name: NexusUPM
     m_Url: https://package.cross-nexus.com/repository/cross-sdk-unity
     m_Scopes:
-    - com.nexus.cross.sdk.unity
-    - com.nexus.cross.core
-    - com.nexus.cross.core.common
-    - com.nexus.cross.core.crypto
-    - com.nexus.cross.core.network
-    - com.nexus.cross.core.storage
-    - com.nexus.cross.sign
-    - com.nexus.cross.sign.nethereum
-    - com.nexus.cross.sign.nethereum.unity
-    - com.nexus.cross.sign.unity
-    - com.nexus.cross.unity.dependencies
+    - com.nexus.cross
     m_IsDefault: 0
     m_Capabilities: 0
     m_ConfigSource: 4

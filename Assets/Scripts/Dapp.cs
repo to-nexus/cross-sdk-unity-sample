@@ -72,6 +72,12 @@ namespace Sample
                 },
                 new ButtonStruct
                 {
+                    Text = "Send 1 ERC20 with FeePayer",
+                    OnClick = OnSendERC20ButtonWithFeePayer,
+                    AccountRequired = true
+                },
+                new ButtonStruct
+                {
                     Text = "Get Balance",
                     OnClick = OnGetBalanceButton,
                     AccountRequired = true
@@ -310,7 +316,14 @@ namespace Sample
                     }
                 };
                 var value = Web3.Convert.ToWei(1);  // send 1 cross
-                var result = await CrossSdk.Evm.SendTransactionAsync(toAddress, value, null, customData);
+                int txType = 0;   // 0 is legacy transaction, 2 is EIP-1559 transaction. If you want FeePayer, set 2.
+                var result = await CrossSdk.Evm.SendTransactionAsync(
+                    toAddress, // to: 받는 사람 주소
+                    value,     // amount: 전송할 토큰 양
+                    null,      // data: 전송할 데이터
+                    txType,    // type: 0 is legacy transaction, 2 is EIP-1559 transaction. If you want FeePayer, set 2.
+                    customData // custom data: 사용자 정의 데이터
+                );
                 Debug.Log("Transaction hash: " + result);
 
                 Notification.ShowMessage($"Tx hash: {result} now polling tx...");
@@ -340,24 +353,81 @@ namespace Sample
             TextAsset abiText = Resources.Load<TextAsset>("Contracts/SampleERC20abi");
             string abi = abiText.text;
             var customData = new CustomData
-                {
-                    Metadata = "Meta data is required in Unity Sdk."
-                };
+            {
+                Metadata = "Meta data is required in Unity Sdk."
+            };
             try
             {
                 Notification.ShowMessage("Sending transaction...");
 
-                var value = Web3.Convert.ToWei(1);
+                var amount = Web3.Convert.ToWei(1);  // 1 토큰을 wei로 변환
 
                 // Call any contract method with arbitrary parameters
-                // In this case, WriteContractAsync executes a contract method ('transfer') with custom data and parameters
+                // Using WriteContractAsync overload without gas, value, and type parameters:
+                // - arguments: toAddress and amount for the transfer function
                 var result = await CrossSdk.Evm.WriteContractAsync(
                     ERC20_ADDRESS,  // contract address
-                    abi,  //abi
-                    "transfer", // method name in contract code
+                    abi,            // abi
+                    "transfer",     // method name in contract code
                     customData,
-                    toAddress,
-                    value
+                    toAddress,      // to: 받는 사람 주소
+                    amount          // amount: 전송할 토큰 양
+                );
+
+                Debug.Log("Transaction hash: " + result);
+
+                Notification.ShowMessage($"Tx hash: {result} now polling tx...");
+
+                try {
+                    // Poll transaction with received tx hash to see if it is mined on blockchain
+                    var tx = await CrossSdk.Evm.PollTransaction(result);
+                    Notification.ShowMessage($"Successfully retrieved transaction {result}");
+                }
+                catch (Exception ex)
+                {
+                    Notification.ShowMessage($"Error: {ex.Message}");
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Notification.ShowMessage($"Error sending transaction.\n{e.Message}");
+                Debug.LogException(e, this);
+            }
+        }
+
+        // send 1 ERC20 token to specified address with FeePayer
+        public async void OnSendERC20ButtonWithFeePayer()
+        {
+            Debug.Log("[CrossSdk Sample] OnSendERC20Button");
+            const string toAddress = "0x920A31f0E48739C3FbB790D992b0690f7F5C42ea";
+            const string ERC20_ADDRESS = "0x88f8146EB4120dA51Fc978a22933CbeB71D8Bde6";
+            TextAsset abiText = Resources.Load<TextAsset>("Contracts/SampleERC20abi");
+            string abi = abiText.text;
+            var customData = new CustomData
+            {
+                Metadata = "Meta data is required in Unity Sdk."
+            };
+            try
+            {
+                Notification.ShowMessage("Sending transaction...");
+
+                var amount = Web3.Convert.ToWei(1);  // 1 토큰을 wei로 변환
+                var txType = 2; // 2 is EIP-1559 transaction. If you want FeePayer, set 2.
+
+                // Call any contract method with arbitrary parameters
+                // Using WriteContractAsync overload with value, gas, and type parameters:
+                // - arguments: toAddress and amount for the transfer function
+                var result = await CrossSdk.Evm.WriteContractAsync(
+                    ERC20_ADDRESS,  // contract address
+                    abi,            // abi
+                    "transfer",     // method name in contract code
+                    customData,
+                    0,              // value는 0 (ETH를 보내지 않음)
+                    default,        // gas는 기본값 사용
+                    txType,         // type: 0 is legacy transaction, 2 is EIP-1559 transaction. If you want FeePayer, set 2.
+                    toAddress,      // to: 받는 사람 주소
+                    amount     // amount: 전송할 토큰 양
                 );
 
                 Debug.Log("Transaction hash: " + result);
