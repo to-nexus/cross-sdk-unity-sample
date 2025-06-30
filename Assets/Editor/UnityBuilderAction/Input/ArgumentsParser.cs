@@ -14,7 +14,6 @@ namespace UnityBuilderAction.Input
             "androidKeystorePass",
             "androidKeyaliasName",
             "androidKeyaliasPass",
-            "mixpanelToken"
         };
 
         public static Dictionary<string, string> GetValidatedOptions()

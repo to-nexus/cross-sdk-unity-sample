@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.bgtools.playerprefseditor": "1.2.2",
-    "com.mixpanel.unity": "3.5.3",
     "com.nexus.cross.core": "1.1.1",
     "com.nexus.cross.core.common": "1.1.1",
     "com.nexus.cross.core.crypto": "1.1.1",
@@ -21,7 +20,6 @@
     "com.unity.test-framework": "1.4.5",
     "com.unity.ugui": "2.0.0",
     "com.yasirkula.ingamedebugconsole": "1.6.8",
-    "io.sentry.unity": "2.3.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.assetbundle": "1.0.0",
@@ -45,12 +43,10 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.bgtools.playerprefseditor",
-        "com.mixpanel.unity",
         "com.nethereum.unity",
         "com.openupm",
         "com.skibitsky.scene-reference",
-        "com.yasirkula.ingamedebugconsole",
-        "io.sentry.unity"
+        "com.yasirkula.ingamedebugconsole"
       ]
     },
     {

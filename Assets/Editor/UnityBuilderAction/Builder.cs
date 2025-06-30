@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using mixpanel;
 using UnityBuilderAction.Input;
 using UnityBuilderAction.Reporting;
 using UnityBuilderAction.Versioning;
 using UnityEditor;
-using UnityEditor.Build.Reporting;
 using UnityEngine;
 
 namespace UnityBuilderAction
@@ -18,8 +15,6 @@ namespace UnityBuilderAction
         {
             // Gather values from args
             var options = ArgumentsParser.GetValidatedOptions();
-
-            InjectSecrets(options);
 
             // Gather values from project
             var scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(s => s.path).ToArray();
@@ -101,15 +96,5 @@ namespace UnityBuilderAction
             StdOutReporter.ExitWithResult(result);
         }
 
-        private static void InjectSecrets(Dictionary<string, string> options)
-        {
-            if (options.TryGetValue("mixpanelToken", out var mixpanelToken))
-            {
-                var mixpanelSettings = MixpanelSettings.Instance;
-                mixpanelSettings.RuntimeToken = mixpanelToken;
-                mixpanelSettings.DebugToken = mixpanelToken;
-                EditorUtility.SetDirty(mixpanelSettings);
-            }
-        }
     }
 }

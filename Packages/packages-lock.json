@@ -7,13 +7,6 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
-    "com.mixpanel.unity": {
-      "version": "3.5.3",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
     "com.nethereum.unity": {
       "version": "4.26.0",
       "depth": 1,
@@ -229,13 +222,6 @@
     },
     "com.yasirkula.ingamedebugconsole": {
       "version": "1.6.8",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "io.sentry.unity": {
-      "version": "2.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

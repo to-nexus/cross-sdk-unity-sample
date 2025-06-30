@@ -6,10 +6,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityLogger = Cross.Sign.Unity.UnityLogger;
 
-#if !UNITY_WEBGL
-using mixpanel;
-#endif
-
 namespace Sample
 {
     public class CrossSdkInit : MonoBehaviour
@@ -44,11 +40,7 @@ namespace Sample
             await CrossSdk.InitializeAsync(
                 CrossSdkConfig
             );
-#if !UNITY_WEBGL
-            // The Mixpanel is used by the sample project to collect telemetry
-            var clientId = await CrossSdk.Instance.SignClient.CoreClient.Crypto.GetClientId();
-            Mixpanel.Identify(clientId);
-#endif
+
             Debug.Log($"[CrossSdk Init] CrossSdk initialized. Loading menu scene...");
             SceneManager.LoadScene(_menuScene);
         }

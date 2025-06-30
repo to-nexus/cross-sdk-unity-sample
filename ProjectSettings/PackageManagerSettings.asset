@@ -32,12 +32,10 @@ MonoBehaviour:
     m_Url: https://package.openupm.com
     m_Scopes:
     - com.bgtools.playerprefseditor
-    - com.mixpanel.unity
     - com.nethereum.unity
     - com.openupm
     - com.skibitsky.scene-reference
     - com.yasirkula.ingamedebugconsole
-    - io.sentry.unity
     m_IsDefault: 0
     m_Capabilities: 0
     m_ConfigSource: 4
