@@ -22,6 +22,9 @@ namespace Sample
         private ButtonStruct[] _buttons;
         private VisualElement _buttonsContainer;
 
+        // Constants
+        private const string ERC20_ADDRESS = "0xe934057Ac314cD9bA9BC17AE2378959fd39Aa2E3";
+
         private void Awake()
         {
             Application.targetFrameRate = Screen.currentResolution.refreshRate;
@@ -349,7 +352,6 @@ namespace Sample
         {
             Debug.Log("[CrossSdk Sample] OnSendERC20Button");
             const string toAddress = "0x920A31f0E48739C3FbB790D992b0690f7F5C42ea";
-            const string ERC20_ADDRESS = "0x88f8146EB4120dA51Fc978a22933CbeB71D8Bde6";
             TextAsset abiText = Resources.Load<TextAsset>("Contracts/SampleERC20abi");
             string abi = abiText.text;
             var customData = new CustomData
@@ -363,7 +365,7 @@ namespace Sample
                 var amount = Web3.Convert.ToWei(1);  // 1 토큰을 wei로 변환
 
                 // Call any contract method with arbitrary parameters
-                // Using WriteContractAsync overload without gas, value, and type parameters:
+                // Using WriteContractAsync overload with value, gas, and type parameters:
                 // - arguments: toAddress and amount for the transfer function
                 var result = await CrossSdk.Evm.WriteContractAsync(
                     ERC20_ADDRESS,  // contract address
@@ -401,7 +403,6 @@ namespace Sample
         {
             Debug.Log("[CrossSdk Sample] OnSendERC20Button");
             const string toAddress = "0x920A31f0E48739C3FbB790D992b0690f7F5C42ea";
-            const string ERC20_ADDRESS = "0x88f8146EB4120dA51Fc978a22933CbeB71D8Bde6";
             TextAsset abiText = Resources.Load<TextAsset>("Contracts/SampleERC20abi");
             string abi = abiText.text;
             var customData = new CustomData
@@ -517,14 +518,14 @@ namespace Sample
         // read contract state such as balance of token or other data
         public async void OnReadContractClicked()
         {
-            if (CrossSdk.NetworkController.ActiveChain.ChainId != "eip155:612044")
-            {
-                Notification.ShowMessage("Please switch to Cross Testnet.");
-                return;
-            }
+            // if (CrossSdk.NetworkController.ActiveChain.ChainId != "eip155:612044")
+            // {
+            //     Notification.ShowMessage("Please switch to Cross Testnet.");
+            //     return;
+            // }
 
-            const string contractAddress = "0x88f8146EB4120dA51Fc978a22933CbeB71D8Bde6"; // on Cross Testnet
-            const string testAccountAddress = "0xC1B55cfc80D0e9fB9ce7e31ecEbA4782Fcc4455D";
+            var account = await CrossSdk.GetAccountAsync();
+
             TextAsset abiText = Resources.Load<TextAsset>("Contracts/SampleERC20abi");
             string abi = abiText.text;
 
@@ -532,12 +533,12 @@ namespace Sample
 
             try
             {
-                var tokenName = await CrossSdk.Evm.ReadContractAsync<string>(contractAddress, abi, "name");
+                var tokenName = await CrossSdk.Evm.ReadContractAsync<string>(ERC20_ADDRESS, abi, "name");
                 Debug.Log($"Token name: {tokenName}");
 
-                var balance = await CrossSdk.Evm.ReadContractAsync<BigInteger>(contractAddress, abi, "balanceOf", new object[]
+                var balance = await CrossSdk.Evm.ReadContractAsync<BigInteger>(ERC20_ADDRESS, abi, "balanceOf", new object[]
                 {
-                    testAccountAddress
+                    account.Address
                 });
                 var result = $"Test Account owns: {Web3.Convert.FromWei(balance)} {tokenName} tokens active chain.";
 
@@ -565,10 +566,6 @@ namespace Sample
                 PrimaryType = nameof(Mail)
             };
         }
-
-        public const string CryptoPunksAbi =
-            @"[{""constant"":true,""inputs"":[{""name"":""_owner"",""type"":""address""}],""name"":""balanceOf"",""outputs"":[{""name"":""balance"",""type"":""uint256""}],""payable"":false,""stateMutability"":""view"",""type"":""function""},
-        {""constant"":true,""inputs"":[],""name"":""name"",""outputs"":[{""name"":"""",""type"":""string""}],""payable"":false,""stateMutability"":""view"",""type"":""function""}]";
     }
 
     internal struct ButtonStruct

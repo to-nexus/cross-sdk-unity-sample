@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &1
 MonoBehaviour:
-  m_ObjectHideFlags: 53
+  m_ObjectHideFlags: 61
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -18,7 +18,6 @@ MonoBehaviour:
   m_SeeAllPackageVersions: 0
   m_DismissPreviewPackagesInUse: 0
   oneTimeWarningShown: 0
-  oneTimeDeprecatedPopUpShown: 0
   m_Registries:
   - m_Id: main
     m_Name: 
@@ -32,6 +31,8 @@ MonoBehaviour:
     m_Url: https://package.openupm.com
     m_Scopes:
     - com.bgtools.playerprefseditor
+    - com.mixpanel.unity
+    - io.sentry.unity
     - com.nethereum.unity
     - com.openupm
     - com.skibitsky.scene-reference
@@ -47,11 +48,11 @@ MonoBehaviour:
     m_IsDefault: 0
     m_Capabilities: 0
     m_ConfigSource: 4
-  m_UserSelectedRegistryName: NexusUPM
+  m_UserSelectedRegistryName: package.openupm.com
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_Modified: 0
     m_ErrorMessage: 
-    m_UserModificationsInstanceId: -872
-    m_OriginalInstanceId: -876
+    m_UserModificationsInstanceId: -830
+    m_OriginalInstanceId: -832
   m_LoadAssets: 0

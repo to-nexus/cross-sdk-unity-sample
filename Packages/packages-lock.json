@@ -7,6 +7,13 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "com.mixpanel.unity": {
+      "version": "3.5.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.nethereum.unity": {
       "version": "4.26.0",
       "depth": 1,
@@ -15,20 +22,20 @@
       "url": "https://package.openupm.com"
     },
     "com.nexus.cross.core": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.nexus.cross.core.common": "1.1.1",
-        "com.nexus.cross.core.network": "1.1.1",
-        "com.nexus.cross.core.storage": "1.1.1",
-        "com.nexus.cross.core.crypto": "1.1.1",
-        "com.nexus.cross.unity.dependencies": "1.1.1"
+        "com.nexus.cross.core.common": "1.3.0",
+        "com.nexus.cross.core.network": "1.3.0",
+        "com.nexus.cross.core.storage": "1.3.0",
+        "com.nexus.cross.core.crypto": "1.3.0",
+        "com.nexus.cross.unity.dependencies": "1.3.0"
       },
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.core.common": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -37,89 +44,89 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.core.crypto": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.nexus.cross.core.common": "1.1.1",
-        "com.nexus.cross.core.network": "1.1.1",
-        "com.nexus.cross.core.storage": "1.1.1",
-        "com.nexus.cross.unity.dependencies": "1.1.1"
+        "com.nexus.cross.core.common": "1.3.0",
+        "com.nexus.cross.core.network": "1.3.0",
+        "com.nexus.cross.core.storage": "1.3.0",
+        "com.nexus.cross.unity.dependencies": "1.3.0"
       },
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.core.network": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.nexus.cross.core.common": "1.1.1"
+        "com.nexus.cross.core.common": "1.3.0"
       },
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.core.storage": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.nexus.cross.core.common": "1.1.1"
+        "com.nexus.cross.core.common": "1.3.0"
       },
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sdk.unity": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.nexus.cross.sign.nethereum.unity": "1.1.1",
-        "com.nexus.cross.sign.unity": "1.1.1",
-        "com.nexus.cross.core": "1.1.1",
-        "com.nexus.cross.unity.dependencies": "1.1.1",
+        "com.nexus.cross.sign.nethereum.unity": "1.3.0",
+        "com.nexus.cross.sign.unity": "1.3.0",
+        "com.nexus.cross.core": "1.3.0",
+        "com.nexus.cross.unity.dependencies": "1.3.0",
         "com.unity.vectorgraphics": "2.0.0-preview.24"
       },
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sign": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.nexus.cross.core": "1.1.1",
-        "com.nexus.cross.sign.nethereum": "1.1.1"
+        "com.nexus.cross.core": "1.3.0",
+        "com.nexus.cross.sign.nethereum": "1.3.0"
       },
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sign.nethereum": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.nexus.cross.sign": "1.1.1",
+        "com.nexus.cross.sign": "1.3.0",
         "com.nethereum.unity": "4.26.0"
       },
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sign.nethereum.unity": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.nexus.cross.sign.nethereum": "1.1.1",
-        "com.nexus.cross.sign.unity": "1.1.1"
+        "com.nexus.cross.sign.nethereum": "1.3.0",
+        "com.nexus.cross.sign.unity": "1.3.0"
       },
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sign.unity": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.nexus.cross.sign": "1.1.1"
+        "com.nexus.cross.sign": "1.3.0"
       },
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.unity.dependencies": {
-      "version": "1.1.1",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -141,20 +148,11 @@
       "dependencies": {}
     },
     "com.unity.ext.nunit": {
-      "version": "2.0.5",
+      "version": "2.0.3",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
-    },
-    "com.unity.ide.cursor": {
-      "version": "https://github.com/boxqkrtm/com.unity.ide.cursor.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.test-framework": "1.1.9"
-      },
-      "hash": "2c0153a9bab1abc783e5599fa2d2cc3c69d5e389"
     },
     "com.unity.ide.rider": {
       "version": "3.0.34",
@@ -227,6 +225,13 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "io.sentry.unity": {
+      "version": "2.3.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.unity.modules.androidjni": {
       "version": "1.0.0",
       "depth": 0,
@@ -259,12 +264,6 @@
         "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.animation": "1.0.0"
       }
-    },
-    "com.unity.modules.hierarchycore": {
-      "version": "1.0.0",
-      "depth": 1,
-      "source": "builtin",
-      "dependencies": {}
     },
     "com.unity.modules.imageconversion": {
       "version": "1.0.0",
@@ -323,8 +322,7 @@
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0",
-        "com.unity.modules.hierarchycore": "1.0.0"
+        "com.unity.modules.jsonserialize": "1.0.0"
       }
     },
     "com.unity.modules.unitywebrequest": {
