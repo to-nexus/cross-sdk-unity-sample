@@ -23,7 +23,7 @@ namespace Sample
         private VisualElement _buttonsContainer;
 
         // Constants
-        private const string ERC20_ADDRESS = "0xe934057Ac314cD9bA9BC17AE2378959fd39Aa2E3";
+        private const string ERC20_ADDRESS = "0x50B471bacFa904357136e1dE979694CbcF5e65B5";
 
         private void Awake()
         {
@@ -370,10 +370,10 @@ namespace Sample
                 var result = await CrossSdk.Evm.WriteContractAsync(
                     ERC20_ADDRESS,  // contract address
                     abi,            // abi
-                    "transfer",     // method name in contract code
+                    "burn",     // method name in contract code
                     customData,
-                    toAddress,      // to: 받는 사람 주소
-                    amount          // amount: 전송할 토큰 양
+                    // (object)toAddress,      // to: 받는 사람 주소
+                    (object)amount          // amount: 전송할 토큰 양
                 );
 
                 Debug.Log("Transaction hash: " + result);
@@ -418,7 +418,7 @@ namespace Sample
 
                 // Call any contract method with arbitrary parameters
                 // Using WriteContractAsync overload with value, gas, and type parameters:
-                // - arguments: toAddress and amount for the transfer function
+                // - arguments: toAddress and amount for the transfer function. Should be object type. Cast like this - (object)something
                 var result = await CrossSdk.Evm.WriteContractAsync(
                     ERC20_ADDRESS,  // contract address
                     abi,            // abi
@@ -427,8 +427,8 @@ namespace Sample
                     0,              // value는 0 (ETH를 보내지 않음)
                     default,        // gas는 기본값 사용
                     txType,         // type: 0 is legacy transaction, 2 is EIP-1559 transaction. If you want FeePayer, set 2.
-                    toAddress,      // to: 받는 사람 주소
-                    amount     // amount: 전송할 토큰 양
+                    (object)toAddress,      // to: 받는 사람 주소
+                    (object)amount     // amount: 전송할 토큰 양
                 );
 
                 Debug.Log("Transaction hash: " + result);
