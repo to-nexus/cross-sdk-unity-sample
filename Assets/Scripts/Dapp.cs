@@ -6,6 +6,7 @@ using Nethereum.JsonRpc.Client;
 using Nethereum.Web3;
 using Cross.Sdk.Unity;
 using Cross.Core;
+using Cross.Core.Common.Model.Errors;
 using Cross.Sign.Models;
 using Cross.Sign.Nethereum.Model;
 using UnityEngine;
@@ -275,10 +276,9 @@ namespace Sample
 
                 Notification.ShowMessage($"Signature finished: {signature} valid? {isValid}");
             }
-            catch (RpcResponseException e)
+            catch (Exception e)
             {
-                Notification.ShowMessage($"{nameof(RpcResponseException)}:\n{e.Message}");
-                Debug.LogException(e, this);
+                HandleWalletError(e, "signature request");
             }
         }
 
@@ -342,8 +342,7 @@ namespace Sample
             }
             catch (Exception e)
             {
-                Notification.ShowMessage($"Error sending transaction.\n{e.Message}");
-                Debug.LogException(e, this);
+                HandleWalletError(e, "transaction");
             }
         }
 
@@ -393,8 +392,7 @@ namespace Sample
             }
             catch (Exception e)
             {
-                Notification.ShowMessage($"Error sending transaction.\n{e.Message}");
-                Debug.LogException(e, this);
+                HandleWalletError(e, "transaction");
             }
         }
 
@@ -448,8 +446,7 @@ namespace Sample
             }
             catch (Exception e)
             {
-                Notification.ShowMessage($"Error sending transaction.\n{e.Message}");
-                Debug.LogException(e, this);
+                HandleWalletError(e, "transaction");
             }
         }
 
@@ -510,8 +507,7 @@ namespace Sample
             }
             catch (Exception e)
             {
-                Notification.ShowMessage("Error signing typed data");
-                Debug.LogException(e, this);
+                HandleWalletError(e, "typed data signature");
             }
         }
 
@@ -565,6 +561,42 @@ namespace Sample
                 Types = MemberDescriptionFactory.GetTypesMemberDescription(typeof(Domain), typeof(Group), typeof(Mail), typeof(Person)),
                 PrimaryType = nameof(Mail)
             };
+        }
+        
+        /// <summary>
+        /// Common error handler for wallet operations
+        /// Similar to React's useErrorHandler pattern
+        /// </summary>
+        private void HandleWalletError(Exception e, string operationName)
+        {
+            string message;
+            
+            switch (e)
+            {
+                case CrossNetworkException cne when cne.CodeType == ErrorType.JSONRPC_REQUEST_METHOD_REJECTED:
+                    message = $"❌ User rejected the {operationName}";
+                    Debug.Log($"[CrossSdk Sample] User rejected {operationName}");
+                    break;
+                    
+                case CrossNetworkException cne when cne.CodeType == ErrorType.JSONRPC_REQUEST_TIMEOUT:
+                    message = "⏱️ Request timed out. Please try again.";
+                    break;
+                    
+                case CrossNetworkException cne:
+                    message = $"Network Error ({cne.Code}):\n{cne.Message}";
+                    break;
+                    
+                case RpcResponseException rpc:
+                    message = $"RPC Error:\n{rpc.Message}";
+                    break;
+                    
+                default:
+                    message = $"Error:\n{e.Message}";
+                    break;
+            }
+            
+            Notification.ShowMessage(message);
+            Debug.LogException(e, this);
         }
     }
 

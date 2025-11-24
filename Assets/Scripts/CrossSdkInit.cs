@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Cross.Sdk.Unity;
 using Cross.Sdk.Unity.Model;
 using Cross.Core.Common.Logging;
@@ -18,6 +19,14 @@ namespace Sample
 
         private async void Start()
         {
+            // Wait for CrossSdk Instance to be set in Awake()
+            while (CrossSdk.Instance == null)
+            {
+                await Task.Yield();
+            }
+            
+            Debug.Log("[CrossSdk Init] CrossSdk Instance found!");
+            
             // Set up Cross logger to collect logs from CrossSdk
             CrossLogger.Instance = new UnityLogger();
 
