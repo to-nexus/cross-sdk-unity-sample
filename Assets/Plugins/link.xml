@@ -1,0 +1,36 @@
+<linker>
+  <!-- Preserve entire assemblies -->
+  <assembly fullname="Cross.Core.Storage" preserve="all"/>
+  <assembly fullname="Cross.Sign" preserve="all"/>
+  <assembly fullname="Cross.Sign.Unity" preserve="all"/>
+  <assembly fullname="Cross.Sdk.Unity" preserve="all"/>
+  
+  <!-- Preserve Newtonsoft.Json for IL2CPP -->
+  <assembly fullname="Newtonsoft.Json">
+    <type fullname="Newtonsoft.Json.JsonConvert" preserve="all"/>
+    <type fullname="Newtonsoft.Json.Serialization.*" preserve="all"/>
+    <type fullname="Newtonsoft.Json.Linq.*" preserve="all"/>
+    <type fullname="Newtonsoft.Json.Utilities.*" preserve="all"/>
+  </assembly>
+  
+  <!-- Preserve System.Collections for IL2CPP -->
+  <assembly fullname="System">
+    <type fullname="System.Collections.Concurrent.ConcurrentDictionary`2" preserve="all"/>
+    <type fullname="System.Collections.Generic.Dictionary`2" preserve="all"/>
+  </assembly>
+  
+  <!-- Preserve mscorlib collections -->
+  <assembly fullname="mscorlib">
+    <type fullname="System.Collections.Generic.Dictionary`2" preserve="all"/>
+    <type fullname="System.Collections.Generic.List`1" preserve="all"/>
+    <type fullname="System.Collections.Generic.KeyValuePair`2" preserve="all"/>
+    <namespace fullname="System.Collections.Concurrent" preserve="all"/>
+  </assembly>
+  
+  <!-- Preserve System.Core -->
+  <assembly fullname="System.Core">
+    <namespace fullname="System.Collections.Concurrent" preserve="all"/>
+  </assembly>
+</linker>
+
+

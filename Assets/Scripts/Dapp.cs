@@ -47,6 +47,12 @@ namespace Sample
                 },
                 new ButtonStruct
                 {
+                    Text = "Connect + Auth (SIWE)",
+                    OnClick = OnConnectWithAuthButton,
+                    AccountRequired = false
+                },
+                new ButtonStruct
+                {
                     Text = "Network",
                     OnClick = OnNetworkButton
                 },
@@ -192,6 +198,47 @@ namespace Sample
         public void OnConnectButton()
         {
             CrossSdk.Connect();
+        }
+
+        public async void OnConnectWithAuthButton()
+        {
+            // Connect WITH SIWE authentication
+            // This will always prompt for SIWE, regardless of the configuration
+            Debug.Log("[CrossSdk Sample] Connect + Auth: Starting SIWE authentication...");
+            
+            var result = await CrossSdk.AuthenticateWithWallet("cross_wallet");
+            
+            if (result.Authenticated && result.Session != null)
+            {
+                // Success: Close modal and show success message
+                CrossSdk.CloseModal();
+                
+                Debug.Log($"[CrossSdk Sample] ✅ SIWE Authentication successful!");
+                Debug.Log($"[CrossSdk Sample] Address: {result.Session.EthAddress}");
+                Debug.Log($"[CrossSdk Sample] Chain IDs: {string.Join(", ", result.Session.EthChainIds)}");
+                
+                var chainId = result.Session.EthChainIds.Length > 0 ? result.Session.EthChainIds[0] : "Unknown";
+                var address = result.Session.EthAddress;
+                
+                Notification.ShowMessage(
+                    $"✅ SIWE Success\n" +
+                    $"Address: {FormatAddress(address)}\n" +
+                    $"Chain: {chainId}"
+                );
+            }
+            else
+            {
+                // Failure: Keep modal open (error message is shown by SDK)
+                Debug.Log($"[CrossSdk Sample] ⚠️ SIWE Authentication was not completed");
+            }
+        }
+        
+        private string FormatAddress(string address)
+        {
+            if (string.IsNullOrEmpty(address) || address.Length < 10)
+                return address;
+            
+            return $"{address.Substring(0, 6)}...{address.Substring(address.Length - 4)}";
         }
 
         public void OnNetworkButton()

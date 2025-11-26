@@ -45,7 +45,48 @@ namespace Sample
                         // Used by native wallets to redirect back to the app after approving requests
                         Native = "cross-sdk-unity-sample://wc"
                     }
-                )
+                ),
+                // SIWE (Sign-In with Ethereum) configuration for Connect + Auth
+                siweConfig = new SiweConfig
+                {
+                    // Note: SIWE is automatically enabled when using Authenticate() methods
+                    // Use Connect() for regular connection, Authenticate() for SIWE authentication
+                    
+                    // Generate nonce for SIWE message (for production, get from backend!)
+                    GetNonce = async () =>
+                    {
+                        Debug.Log("[SIWE] Generating nonce...");
+                        return SiweUtils.GenerateNonce();
+                    },
+                    
+                    // SIWE message parameters
+                    GetMessageParams = () => new SiweMessageParams
+                    {
+                        Domain = "cross-sdk-unity-sample", // app or domain name
+                        Uri = "https://to.nexus", // app or domain url
+                        Statement = "Sign in to Cross SDK Unity Sample with your wallet" // statement to be signed by the wallet
+                    },
+                    
+                    // Store session after successful authentication
+                    GetSession = async (args) =>
+                    {
+                        var session = new SiweSession(args);
+                        Debug.Log($"[SIWE] ✅ Authentication successful! Address: {args.Address}");
+                        return session;
+                    },
+                    
+                    // Sign out handler
+                    SignOut = async () =>
+                    {
+                        Debug.Log("[SIWE] 🔒 Signed out");
+                    },
+                    
+                    // Disable automatic SIWE modal (we control it manually)
+                    OpenSiweViewOnSignatureRequest = false,
+                    SignOutOnWalletDisconnect = true,
+                    SignOutOnAccountChange = true,
+                    SignOutOnChainChange = true
+                }
             };
 
             Debug.Log("[CrossSdk Init] Initializing CrossSdk...");
