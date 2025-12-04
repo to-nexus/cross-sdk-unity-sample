@@ -22,7 +22,7 @@
       "url": "https://package.openupm.com"
     },
     "com.nexus.cross.core": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -35,7 +35,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.core.common": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -44,7 +44,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.core.crypto": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -56,7 +56,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.core.network": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -65,7 +65,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.core.storage": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -74,7 +74,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sdk.unity": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -87,7 +87,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sign": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -97,7 +97,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sign.nethereum": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -107,7 +107,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sign.nethereum.unity": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -117,7 +117,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.sign.unity": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -126,7 +126,7 @@
       "url": "https://package.cross-nexus.com/repository/cross-sdk-unity"
     },
     "com.nexus.cross.unity.dependencies": {
-      "version": "1.3.6",
+      "version": "1.3.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
